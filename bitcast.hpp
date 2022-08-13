@@ -40,6 +40,9 @@ constexpr
 typename std::enable_if<std::is_convertible<From, To>::value, To>::type
 bit_cast__(const From& from) noexcept
 {
+    static_assert(noexcept(static_cast<To>(from)),
+            "Conversion must be noexcept");
+
     return static_cast<To>(from);
 }
 
