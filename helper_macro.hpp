@@ -4,6 +4,9 @@
 #include "holder.hpp"
 
 #define ABF_FIELD(BF, T, NAME, ...)                             \
+    static_assert(std::is_trivially_copyable<T>::value,         \
+            "T must be trivially copyable");                    \
+                                                                \
     constexpr T NAME() const noexcept                           \
     {                                                           \
         return                                                  \
