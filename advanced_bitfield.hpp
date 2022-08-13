@@ -19,7 +19,7 @@ class bitfield
                 TAlias s, Holder h, Tail ... tail) noexcept
         {
             return init_storage<Tail...>::
-                f(h.template set_storage<TAlias>(s), tail...);
+                f(h.template set<TAlias>(s), tail...);
         }
     };
 
@@ -28,7 +28,7 @@ class bitfield
     {
         static constexpr TAlias f(TAlias s, Holder h) noexcept
         {
-            return h.template set_storage<TAlias>(s);
+            return h.template set<TAlias>(s);
         }
     };
 
