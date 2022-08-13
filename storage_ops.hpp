@@ -72,7 +72,7 @@ struct merge_parts_from_storage<int_type, OFFSET, BEGIN, END>
 };
 
 template<typename int_type, std::size_t ... Parts>
-constexpr int_type get_from_storage(int_type storage)
+constexpr int_type get_from_storage(int_type storage) noexcept
 {
     return merge_parts_from_storage<int_type, 0, Parts...>::f(storage);
 }
