@@ -12,10 +12,17 @@ namespace abf{ namespace detail
 {
 
 template<typename To, typename From>
+struct impl_switch : 
+    std::integral_constant<bool, 
+        std::is_convertible<From, To>::value ||
+        ((std::is_enum<From>::value || std::is_integral<From>::value) &&
+         (std::is_enum<From>::value || std::is_integral<From>::value))>{};
+
+template<typename To, typename From>
 #if __cplusplus >= 202002L
 constexpr 
 #endif
-typename std::enable_if<!std::is_convertible<From, To>::value, To>::type 
+typename std::enable_if<!impl_switch<From, To>::value, To>::type 
 bit_cast__(const From& from) noexcept
 {
 #if __cplusplus >= 202002L
@@ -37,7 +44,7 @@ bit_cast__(const From& from) noexcept
 
 template<typename To, typename From>
 constexpr 
-typename std::enable_if<std::is_convertible<From, To>::value, To>::type
+typename std::enable_if<impl_switch<From, To>::value, To>::type
 bit_cast__(const From& from) noexcept
 {
     static_assert(noexcept(static_cast<To>(from)),
