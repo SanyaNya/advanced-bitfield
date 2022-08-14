@@ -31,7 +31,7 @@
                 __VA_ARGS__>(this->bf::storage);                \
     }                                                           \
                                                                 \
-    using NAME##_t = abf::detail::holder<T, __VA_ARGS__>;
+    using NAME##_b = abf::detail::holder<T, __VA_ARGS__>;
 
 #define ABF_CTOR(BF, ...) BF(typename BF::ctor_tag{}, __VA_ARGS__)
 

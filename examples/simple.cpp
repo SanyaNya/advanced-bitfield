@@ -12,7 +12,7 @@ public:
     ABF_FIELD(bf, unsigned short, n2, 17, 31)
     ABF_FIELD(bf, bool,           f2, 31, 32)
 
-    constexpr S(f1_t f1_, n1_t n1_, n2_t n2_, f2_t f2_) noexcept :
+    constexpr S(f1_b f1_, n1_b n1_, n2_b n2_, f2_b f2_) noexcept :
         ABF_CTOR(bf, f1_, n1_, n2_, f2_) {}
 };
 
