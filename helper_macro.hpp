@@ -3,7 +3,7 @@
 #include "field_ref.hpp"
 #include "holder.hpp"
 
-#define ABF_FIELD(BF, T, NAME, ...)                             \
+#define ABF_CONST_FIELD(BF, T, NAME, ...)                       \
     static_assert(std::is_trivially_copyable<T>::value,         \
             "T must be trivially copyable");                    \
                                                                 \
@@ -16,7 +16,10 @@
                         typename BF::Alias>::type,              \
                     T,                                          \
                     __VA_ARGS__>(this->bf::storage));           \
-    }                                                           \
+    }
+
+#define ABF_FIELD(BF, T, NAME, ...)                             \
+    ABF_CONST_FIELD(BF, T, NAME, __VA_ARGS__)                   \
                                                                 \
     CONSTEXPR_IF_NOT_CPP11                                      \
     abf::detail::field_ref<                                     \

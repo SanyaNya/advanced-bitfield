@@ -11,14 +11,16 @@ public:
     ABF_FIELD(bf, std::uint8_t,  offset1, 16, 24)
     ABF_FIELD(bf, std::uint8_t,  offset2, 24, 32)
 
-    ABF_FIELD(bf, std::uint32_t, addr1, 16, 24, //(base << 8) | offset1
-                                        0,  16) //
+    ABF_CONST_FIELD(bf, 
+        std::uint32_t, addr1, 16, 24, //(base << 8) | offset1
+                              0,  16) //
 
-    ABF_FIELD(bf, std::uint32_t, addr2, 24, 32, //(base << 8) | offset2
-                                        0,  16)
+    ABF_CONST_FIELD(bf, 
+        std::uint32_t, addr2, 24, 32, //(base << 8) | offset2
+                              0,  16)
 
-    ABF_FIELD(bf, std::uint32_t, is_odd1, 16, 17);
-    ABF_FIELD(bf, std::uint32_t, is_odd2, 24, 25);
+    ABF_CONST_FIELD(bf, std::uint32_t, is_odd1, 16, 17);
+    ABF_CONST_FIELD(bf, std::uint32_t, is_odd2, 24, 25);
 };
 
 inline void print(S s)
