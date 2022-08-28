@@ -16,7 +16,7 @@ struct impl_switch :
     std::integral_constant<bool, 
         std::is_convertible<From, To>::value ||
         ((std::is_enum<From>::value || std::is_integral<From>::value) &&
-         (std::is_enum<From>::value || std::is_integral<From>::value))>{};
+         (std::is_enum<To>::value || std::is_integral<To>::value))>{};
 
 template<typename To, typename From>
 #if __cplusplus >= 202002L
