@@ -15,7 +15,7 @@
                     typename std::add_const<                    \
                         typename BF::Alias>::type,              \
                     T,                                          \
-                    __VA_ARGS__>(this->bf::storage));           \
+                    __VA_ARGS__>(this->BF::storage));           \
     }
 
 #define ABF_FIELD(BF, T, NAME, ...)                             \
@@ -31,7 +31,7 @@
             abf::detail::field_ref<                             \
                 typename BF::Alias,                             \
                 T,                                              \
-                __VA_ARGS__>(this->bf::storage);                \
+                __VA_ARGS__>(this->BF::storage);                \
     }                                                           \
                                                                 \
     using NAME##_b = abf::detail::holder<T, __VA_ARGS__>;
