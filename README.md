@@ -7,3 +7,5 @@ Supports:
 <li>Overlapped parts</li>
 <li>Cast bitfield to and from integral</li>
 </ul>
+
+Look at examples/simple for quickstart guide.
