@@ -1,4 +1,5 @@
 # Advanced-bitfield
+Library for complex bitfields, useful for things like x86 segment descriptor
 
 ## Requirements: C++11
 
