@@ -1,5 +1,8 @@
 #pragma once
 
+// Type holding parts info of field
+// used in user defined constructors
+
 #include "storage_ops.hpp"
 #include "get_int_storage.hpp"
 #include "bitcast.hpp"

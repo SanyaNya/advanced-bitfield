@@ -1,5 +1,7 @@
 #pragma once
 
+// Implementation of std::bit_cast with c++11 support(partially constexpr)
+
 #if __cplusplus >= 202002L
 #include <bit>
 #else

@@ -1,5 +1,7 @@
 #pragma once
 
+// Get int int_type with size corresponding to "T" type
+
 #include <type_traits>
 #include <cstdint>
 
