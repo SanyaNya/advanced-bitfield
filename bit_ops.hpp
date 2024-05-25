@@ -73,8 +73,8 @@ struct mask<T, BEGIN, END>
 template<std::size_t SRC_POS, std::size_t DEST_POS, typename T>
 constexpr T shift_to(T t) noexcept
 {
-  return SRC_POS < DEST_POS ? t << (DEST_POS - SRC_POS)
-                            : t >> (SRC_POS - DEST_POS);
+  return static_cast<T>(
+    SRC_POS < DEST_POS ? t << (DEST_POS - SRC_POS) : t >> (SRC_POS - DEST_POS));
 }
 
 }
